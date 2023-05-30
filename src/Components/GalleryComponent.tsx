@@ -4,7 +4,7 @@ import CardComponent from "./CardComponent";
 import Box from '@mui/material/Box';
 
 type Props = {
-    fetch: Function,
+    fetch: () => Promise<[]>,
     isCategories: boolean,
 }
 

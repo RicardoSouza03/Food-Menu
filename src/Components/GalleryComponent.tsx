@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid'
 import CardComponent from "./CardComponent";
+import Box from '@mui/material/Box';
 
 type Props = {
     fetch: Function,
@@ -22,9 +22,9 @@ export default function GalleryComponent(props: Props) {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={{ md: 1.5 }} columns={{ xs: 4, sm: 2, md: 20 }}>
+            <Grid container spacing={{ md: 1.5, xs: 1.5 }} columns={{ xs: 1, sm: 2, md: 20 }}>
                 {items.map((item) => (
-                    <Grid item xs={2} sm={4} md={4} key={item['idCategory'] || item['idMeal']}>
+                    <Grid item xs={1} sm={1} md={4} key={item['idCategory'] || item['idMeal']}>
                             <CardComponent
                                 id={item['idCategory'] || item['idMeal']}
                                 description={item['strCategoryDescription'] || null}

@@ -30,7 +30,6 @@ export default function MealComponent(props: Props) {
 
     const getMeal = async () => {
         const meal = await getMealById(props.id)
-        console.log(meal)
         setMeal(meal)
     }
 

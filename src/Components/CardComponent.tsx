@@ -35,7 +35,18 @@ export default function CardComponent (itemInfo: Props) {
               alt={itemInfo.name}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography 
+                gutterBottom 
+                variant="h5" 
+                component="div"
+                sx={{
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  display: "-webkit-box",
+                  WebkitLineClamp: "1",
+                  WebkitBoxOrient: "vertical",
+                }} 
+              >
                 {itemInfo.name}
               </Typography>
               <Typography 

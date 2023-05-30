@@ -22,7 +22,7 @@ export default function GalleryComponent(props: Props) {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={{ md: 1.5 }} columns={{ xs: 4, sm: 5, md: 16 }}>
+            <Grid container spacing={{ md: 1.5 }} columns={{ xs: 4, sm: 2, md: 20 }}>
                 {items.map((item) => (
                     <Grid item xs={2} sm={4} md={4} key={item['idCategory'] || item['idMeal']}>
                             <CardComponent

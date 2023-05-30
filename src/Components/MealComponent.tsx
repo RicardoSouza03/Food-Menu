@@ -4,6 +4,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useNavigate } from "react-router-dom"
 
 type Props = {
     id: string,
@@ -27,10 +30,16 @@ type Meal = {
 
 export default function MealComponent(props: Props) {
     const [meal, setMeal] = useState<Meal>()
+    const navigate = useNavigate()
 
     const getMeal = async () => {
         const meal = await getMealById(props.id)
         setMeal(meal)
+    }
+
+    const returnToCategory = () => {
+        const url = "/category/" + meal?.strCategory
+        return navigate(url)
     }
 
     useEffect(() => {
@@ -38,10 +47,18 @@ export default function MealComponent(props: Props) {
     }, [])
 
     return (
-        <Card sx={{ width: "150vh", top: 0, margin: "auto" }}>
+        <Card sx={{ width: "100vh", margin: "auto" }}>
+            <IconButton 
+                onClick={() => returnToCategory()} 
+                aria-label="return" 
+                size="small"
+                sx={{ position: "fixed", backgroundColor: "white", margin: 0.5 }}
+            >
+                <ArrowBackIcon />
+            </IconButton>
             <CardMedia
                 component="img"
-                height="450"
+                height="450vh"
                 image={meal?.strMealThumb}
                 alt={meal?.strMeal}
             />
@@ -86,8 +103,8 @@ export default function MealComponent(props: Props) {
                 <CardMedia
                     component="iframe"
                     title="Tutorial"
-                    src={"https://www.youtube.com/embed/" + meal?.strYoutube?.split('=')[1]}
-                    height="500"
+                    src={"https://www.youtube-nocookie.com/embed/" + meal?.strYoutube?.split('=')[1]}
+                    height="500vh"
                 />
             </CardContent>
         </Card>
